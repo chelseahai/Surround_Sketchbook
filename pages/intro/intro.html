@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Surrounds You?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="intro.css">
+</head>
+<body>
+    <div class="intro-container">
+        <!-- Stage 1: Silhouette with Question -->
+        <div class="stage stage-1 active" id="stage1">
+            <div class="question">What surrounds you?</div>
+            <div class="silhouette">
+                <svg viewBox="0 0 200 400" class="person-silhouette">
+                    <!-- Head -->
+                    <circle cx="100" cy="80" r="25" fill="rgba(74, 44, 90, 0.8)"/>
+                    <!-- Body -->
+                    <rect x="75" y="105" width="50" height="120" fill="rgba(74, 44, 90, 0.8)"/>
+                    <!-- Arms -->
+                    <rect x="45" y="115" width="30" height="80" fill="rgba(74, 44, 90, 0.8)"/>
+                    <rect x="125" y="115" width="30" height="80" fill="rgba(74, 44, 90, 0.8)"/>
+                    <!-- Legs -->
+                    <rect x="75" y="225" width="20" height="120" fill="rgba(74, 44, 90, 0.8)"/>
+                    <rect x="105" y="225" width="20" height="120" fill="rgba(74, 44, 90, 0.8)"/>
+                </svg>
+            </div>
+            <div class="click-hint">Click to explore</div>
+        </div>
+
+        <!-- Stage 2: Environment View -->
+        <div class="stage stage-2" id="stage2">
+            <div class="environment-container">
+                <div class="environment-scene">
+                    <!-- Buildings -->
+                    <div class="building building-1"></div>
+                    <div class="building building-2"></div>
+                    <div class="building building-3"></div>
+                    <div class="building building-4"></div>
+                    <!-- Trees -->
+                    <div class="tree tree-1"></div>
+                    <div class="tree tree-2"></div>
+                    <div class="tree tree-3"></div>
+                    <!-- Sky -->
+                    <div class="sky"></div>
+                    <!-- Ground -->
+                    <div class="ground"></div>
+                </div>
+                <div class="person-overlay">
+                    <svg viewBox="0 0 200 400" class="person-silhouette">
+                        <circle cx="100" cy="80" r="25" fill="rgba(74, 44, 90, 0.9)"/>
+                        <rect x="75" y="105" width="50" height="120" fill="rgba(74, 44, 90, 0.9)"/>
+                        <rect x="45" y="115" width="30" height="80" fill="rgba(74, 44, 90, 0.9)"/>
+                        <rect x="125" y="115" width="30" height="80" fill="rgba(74, 44, 90, 0.9)"/>
+                        <rect x="75" y="225" width="20" height="120" fill="rgba(74, 44, 90, 0.9)"/>
+                        <rect x="105" y="225" width="20" height="120" fill="rgba(74, 44, 90, 0.9)"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="stage-info">
+                <h2>Your Surroundings</h2>
+                <p>Scroll to look around your environment</p>
+            </div>
+            <div class="click-hint">Click to focus on yourself</div>
+        </div>
+
+        <!-- Stage 3: Garment View -->
+        <div class="stage stage-3" id="stage3">
+            <div class="garment-container">
+                <div class="person-detailed">
+                    <svg viewBox="0 0 200 400" class="person-detailed-svg">
+                        <!-- Head -->
+                        <circle cx="100" cy="80" r="25" fill="rgba(74, 44, 90, 0.9)"/>
+                        <!-- Body with garments -->
+                        <rect x="75" y="105" width="50" height="120" fill="rgba(235, 188, 247, 0.8)"/>
+                        <rect x="70" y="100" width="60" height="130" fill="rgba(235, 188, 247, 0.3)" stroke="rgba(235, 188, 247, 0.6)" stroke-width="2"/>
+                        <!-- Arms with sleeves -->
+                        <rect x="45" y="115" width="30" height="80" fill="rgba(235, 188, 247, 0.7)"/>
+                        <rect x="125" y="115" width="30" height="80" fill="rgba(235, 188, 247, 0.7)"/>
+                        <!-- Legs with pants -->
+                        <rect x="75" y="225" width="20" height="120" fill="rgba(235, 188, 247, 0.6)"/>
+                        <rect x="105" y="225" width="20" height="120" fill="rgba(235, 188, 247, 0.6)"/>
+                        <!-- Accessories -->
+                        <circle cx="100" cy="60" r="8" fill="rgba(235, 188, 247, 0.9)"/> <!-- Hat -->
+                        <rect x="95" y="200" width="10" height="15" fill="rgba(235, 188, 247, 0.8)"/> <!-- Belt -->
+                    </svg>
+                </div>
+            </div>
+            <div class="stage-info">
+                <h2>Your Garments</h2>
+                <p>Scroll to rotate and showcase your style</p>
+            </div>
+            <div class="click-hint">Click to return to beginning</div>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <div class="progress-dot active" data-stage="1"></div>
+            <div class="progress-dot" data-stage="2"></div>
+            <div class="progress-dot" data-stage="3"></div>
+        </div>
+    </div>
+    <script src="intro.js"></script>
+</body>
+</html> 

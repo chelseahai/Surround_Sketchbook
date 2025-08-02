@@ -1,0 +1,577 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fdf2ff 0%, #f8e6ff 50%, #f0d4ff 100%);
+    color: #4a2c5a;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+    cursor: none;
+}
+
+/* === Custom Cursor === */
+#custom-cursor {
+    position: fixed;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #0f0e0f;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out;
+    z-index: 9999;
+}
+
+/* === Main Container === */
+#container {
+    display: flex;
+    width: 1000vw;
+    height: 100vh;
+    transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* === Panel Styles === */
+.panel {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.content {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.content.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* === Typography === */
+.title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    color: #6b3b7a;
+    text-shadow: 0 2px 4px rgba(107, 59, 122, 0.1);
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    color: #8b5a9b;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #6b3b7a;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #6b3b7a;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* === Scroll Indicator === */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    color: #8b5a9b;
+    font-weight: 300;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* === Route Section === */
+.route-question {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #6b3b7a;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.route-description {
+    font-size: 1.1rem;
+    color: #8b5a9b;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.route-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(235, 188, 247, 0.4);
+    border-radius: 12px;
+    color: #4a2c5a;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    transition: all 0.3s ease;
+}
+
+.route-input:focus {
+    outline: none;
+    border-color: #ebbcf7;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 3px rgba(235, 188, 247, 0.2);
+}
+
+.route-input::placeholder {
+    color: #b08bb8;
+}
+
+/* === Buttons === */
+.submit-btn, .door-mirror-btn, .experiment-btn, .top-btn {
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #ebbcf7 0%, #d4a5e8 100%);
+    border: none;
+    color: #4a2c5a;
+    border-radius: 12px;
+    cursor: none;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(235, 188, 247, 0.3);
+}
+
+.submit-btn:hover, .door-mirror-btn:hover, .experiment-btn:hover, .top-btn:hover {
+    background: linear-gradient(135deg, #d4a5e8 0%, #ebbcf7 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(235, 188, 247, 0.4);
+}
+
+/* === Wardrobe Section === */
+.wardrobe-subtitle {
+    font-size: 1.1rem;
+    color: #8b5a9b;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.wardrobe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.wardrobe-item {
+    padding: 2.5rem 2rem;
+    text-align: center;
+    cursor: none;
+    transition: all 0.5s ease;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wardrobe-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(235, 188, 247, 0.3) 0%, 
+                rgba(235, 188, 247, 0.1) 30%, 
+                transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 20px;
+}
+
+.wardrobe-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(235, 188, 247, 0.2);
+    border-color: rgba(235, 188, 247, 0.4);
+}
+
+.wardrobe-item:hover .wardrobe-glow {
+    opacity: 1;
+}
+
+.wardrobe-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.wardrobe-item:hover .wardrobe-icon {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(235, 188, 247, 0.5));
+}
+
+.wardrobe-item h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #6b3b7a;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.wardrobe-item:hover h3 {
+    color: #4a2c5a;
+    text-shadow: 0 0 20px rgba(235, 188, 247, 0.3);
+}
+
+.wardrobe-item p {
+    font-size: 1rem;
+    color: #8b5a9b;
+    font-weight: 300;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+    transition: color 0.4s ease;
+}
+
+.wardrobe-item:hover p {
+    color: #6b3b7a;
+}
+
+/* === Door Mirror Section === */
+.door-mirror-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* === Progress Section === */
+.progress-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.progress-item {
+    padding: 2rem;
+    border: 2px solid rgba(235, 188, 247, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.progress-item h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #6b3b7a;
+}
+
+.progress-item p {
+    font-size: 0.95rem;
+    color: #8b5a9b;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(235, 188, 247, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ebbcf7 0%, #d4a5e8 100%);
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+/* === Gallery Section === */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    border: 2px solid rgba(235, 188, 247, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    border-color: #ebbcf7;
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.05);
+}
+
+.gallery-placeholder {
+    color: #8b5a9b;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+/* === Technical Section === */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tech-item {
+    padding: 2rem;
+    border: 2px solid rgba(235, 188, 247, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.tech-item h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #6b3b7a;
+}
+
+.tech-item p {
+    font-size: 0.95rem;
+    color: #8b5a9b;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.tag {
+    padding: 0.3rem 0.8rem;
+    background: rgba(235, 188, 247, 0.3);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #6b3b7a;
+    font-weight: 400;
+}
+
+/* === Experimental Section === */
+.experiment-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.experiment-item {
+    padding: 2rem;
+    border: 2px solid rgba(235, 188, 247, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.experiment-item h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    color: #6b3b7a;
+}
+
+.experiment-item p {
+    font-size: 0.95rem;
+    color: #8b5a9b;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+/* === Journey Timeline === */
+.journey-timeline {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    position: relative;
+}
+
+.journey-timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(235, 188, 247, 0.3);
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+    background: #ebbcf7;
+    border-radius: 50%;
+    margin-right: 2rem;
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #6b3b7a;
+}
+
+.timeline-content p {
+    font-size: 0.95rem;
+    color: #8b5a9b;
+    font-weight: 300;
+}
+
+/* === Contact Section === */
+.contact-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-text {
+    font-size: 1.2rem;
+    color: #6b3b7a;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.contact-link {
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(235, 188, 247, 0.3);
+    border-radius: 8px;
+    color: #6b3b7a;
+    text-decoration: none;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.contact-link:hover {
+    border-color: #ebbcf7;
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+}
+
+.back-to-top {
+    margin-top: 2rem;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .route-question {
+        font-size: 1.6rem;
+    }
+    
+    .wardrobe-grid,
+    .progress-grid,
+    .gallery-grid,
+    .tech-grid,
+    .experiment-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .door-mirror-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .door-mirror-btn {
+        width: 250px;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-link {
+        width: 200px;
+        text-align: center;
+    }
+}
+
+/* === Hide cursor on interactive elements === */
+button, input, .wardrobe-item, .gallery-item, .contact-link {
+    cursor: none;
+} 

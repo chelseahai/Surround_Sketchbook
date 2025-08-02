@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8e6ff 0%, #f0d4ff 50%, #ebbcf7 100%);
+    color: #4a2c5a;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: none;
+}
+
+.route-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.route-question {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #6b3b7a;
+    letter-spacing: 0.5px;
+}
+
+.route-description {
+    font-size: 1.2rem;
+    color: #8b5a9b;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.route-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.route-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(235, 188, 247, 0.4);
+    border-radius: 12px;
+    color: #4a2c5a;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    transition: all 0.3s ease;
+}
+
+.route-input:focus {
+    outline: none;
+    border-color: #ebbcf7;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 3px rgba(235, 188, 247, 0.2);
+}
+
+.route-input::placeholder {
+    color: #b08bb8;
+}
+
+.route-button {
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #ebbcf7 0%, #d4a5e8 100%);
+    border: none;
+    color: #4a2c5a;
+    border-radius: 12px;
+    cursor: none;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(235, 188, 247, 0.3);
+}
+
+.route-button:hover {
+    background: linear-gradient(135deg, #d4a5e8 0%, #ebbcf7 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(235, 188, 247, 0.4);
+}
+
+@media (max-width: 768px) {
+    .route-question {
+        font-size: 2rem;
+    }
+    
+    .route-description {
+        font-size: 1rem;
+    }
+} 

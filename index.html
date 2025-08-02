@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surround Sketchbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+
+    <!-- Main Container -->
+    <div id="container">
+        <!-- Page 1: Intro -->
+        <div class="panel" id="intro">
+            <iframe src="pages/intro/intro.html" frameborder="0" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
+
+        <!-- Page 2: Show Route -->
+        <div class="panel" id="route">
+            <iframe src="pages/route/route.html" frameborder="0" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
+
+        <!-- Page 3: Wardrobe -->
+        <div class="panel" id="wardrobe">
+            <iframe src="pages/wardrobe/wardrobe.html" frameborder="0" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
+
+        <!-- Page 4: Door / Mirror -->
+        <div class="panel" id="door-mirror">
+            <div class="content">
+                <h2 class="section-title">Door / Mirror</h2>
+                <div class="door-mirror-container">
+                    <button class="door-mirror-btn" onclick="openDoor()">Open Door</button>
+                    <button class="door-mirror-btn" onclick="lookInMirror()">Look in Mirror</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 5: Portfolio Progress -->
+        <div class="panel" id="progress">
+            <div class="content">
+                <h2 class="section-title">Portfolio Progress</h2>
+                <div class="progress-grid">
+                    <div class="progress-item">
+                        <h3>Design Phase</h3>
+                        <p>Conceptualizing the visual identity</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <h3>Development</h3>
+                        <p>Building the interactive experience</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <h3>Content Creation</h3>
+                        <p>Crafting meaningful narratives</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 6: Creative Gallery -->
+        <div class="panel" id="gallery">
+            <div class="content">
+                <h2 class="section-title">Creative Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">Artwork 1</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">Artwork 2</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">Artwork 3</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">Artwork 4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 7: Technical Showcase -->
+        <div class="panel" id="technical">
+            <div class="content">
+                <h2 class="section-title">Technical Showcase</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <h3>Frontend</h3>
+                        <p>HTML, CSS, JavaScript</p>
+                        <div class="tech-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Vue</span>
+                            <span class="tag">Sass</span>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <h3>Backend</h3>
+                        <p>Server-side development</p>
+                        <div class="tech-tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Database</span>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <h3>Design</h3>
+                        <p>UI/UX and visual design</p>
+                        <div class="tech-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">Adobe</span>
+                            <span class="tag">Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 8: Experimental Lab -->
+        <div class="panel" id="experimental">
+            <div class="content">
+                <h2 class="section-title">Experimental Lab</h2>
+                <div class="experiment-container">
+                    <div class="experiment-item">
+                        <h3>AI Integration</h3>
+                        <p>Exploring machine learning in creative applications</p>
+                        <button class="experiment-btn">Try Experiment</button>
+                    </div>
+                    <div class="experiment-item">
+                        <h3>3D Web</h3>
+                        <p>Three.js and WebGL experiments</p>
+                        <button class="experiment-btn">Try Experiment</button>
+                    </div>
+                    <div class="experiment-item">
+                        <h3>Interactive Audio</h3>
+                        <p>Web Audio API and sound design</p>
+                        <button class="experiment-btn">Try Experiment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 9: Journey Map -->
+        <div class="panel" id="journey">
+            <div class="content">
+                <h2 class="section-title">Journey Map</h2>
+                <div class="journey-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>2023 - Discovery</h3>
+                            <p>Initial concept and research phase</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>2024 - Development</h3>
+                            <p>Building the foundation and core features</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Future - Evolution</h3>
+                            <p>Continuous improvement and new features</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 10: Contact -->
+        <div class="panel" id="contact">
+            <div class="content">
+                <h2 class="section-title">Connect</h2>
+                <div class="contact-container">
+                    <p class="contact-text">Ready to collaborate or just want to say hello?</p>
+                    <div class="contact-links">
+                        <a href="#" class="contact-link">Email</a>
+                        <a href="#" class="contact-link">LinkedIn</a>
+                        <a href="#" class="contact-link">GitHub</a>
+                        <a href="#" class="contact-link">Portfolio</a>
+                    </div>
+                    <div class="back-to-top">
+                        <button onclick="scrollToTop()" class="top-btn">Back to Start</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

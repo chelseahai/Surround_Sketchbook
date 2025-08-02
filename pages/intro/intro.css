@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fdf2ff 0%, #f8e6ff 50%, #f0d4ff 100%);
+    color: #4a2c5a;
+    min-height: 100vh;
+    overflow: hidden;
+    cursor: none;
+}
+
+.intro-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Stage Management */
+.stage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+}
+
+.stage.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+}
+
+/* Stage 1: Silhouette */
+.stage-1 {
+    text-align: center;
+}
+
+.question {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #6b3b7a;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+.silhouette {
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: fadeInScale 1s ease-out 1s forwards;
+}
+
+.person-silhouette {
+    width: 200px;
+    height: 400px;
+    filter: drop-shadow(0 10px 20px rgba(74, 44, 90, 0.2));
+}
+
+.click-hint {
+    font-size: 1rem;
+    color: #8b5a9b;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 2s forwards;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.click-hint:hover {
+    color: #6b3b7a;
+    transform: scale(1.05);
+}
+
+/* Stage 2: Environment */
+.stage-2 {
+    perspective: 1000px;
+}
+
+.environment-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.environment-scene {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to bottom, rgba(235, 188, 247, 0.3), rgba(212, 165, 232, 0.2));
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(235, 188, 247, 0.4), rgba(212, 165, 232, 0.2));
+}
+
+.building {
+    position: absolute;
+    background: rgba(74, 44, 90, 0.3);
+    border-radius: 4px;
+}
+
+.building-1 {
+    width: 80px;
+    height: 200px;
+    left: 10%;
+    bottom: 40%;
+    transform: translateZ(-100px);
+}
+
+.building-2 {
+    width: 120px;
+    height: 280px;
+    left: 25%;
+    bottom: 40%;
+    transform: translateZ(-50px);
+}
+
+.building-3 {
+    width: 100px;
+    height: 240px;
+    right: 20%;
+    bottom: 40%;
+    transform: translateZ(-80px);
+}
+
+.building-4 {
+    width: 90px;
+    height: 220px;
+    right: 5%;
+    bottom: 40%;
+    transform: translateZ(-120px);
+}
+
+.tree {
+    position: absolute;
+    width: 40px;
+    height: 80px;
+    background: rgba(74, 44, 90, 0.4);
+    border-radius: 50% 50% 20px 20px;
+    bottom: 40%;
+}
+
+.tree-1 {
+    left: 15%;
+    transform: translateZ(-60px);
+}
+
+.tree-2 {
+    left: 45%;
+    transform: translateZ(-40px);
+}
+
+.tree-3 {
+    right: 35%;
+    transform: translateZ(-70px);
+}
+
+.person-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.stage-info {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 20;
+}
+
+.stage-info h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #6b3b7a;
+    margin-bottom: 0.5rem;
+}
+
+.stage-info p {
+    font-size: 1rem;
+    color: #8b5a9b;
+    font-weight: 300;
+}
+
+/* Stage 3: Garments */
+.stage-3 {
+    text-align: center;
+}
+
+.garment-container {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.person-detailed {
+    margin-bottom: 2rem;
+}
+
+.person-detailed-svg {
+    width: 250px;
+    height: 500px;
+    filter: drop-shadow(0 15px 30px rgba(235, 188, 247, 0.3));
+}
+
+/* Progress Indicator */
+.progress-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 30;
+}
+
+.progress-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(235, 188, 247, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.progress-dot.active {
+    background: rgba(235, 188, 247, 0.8);
+    transform: scale(1.2);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .question {
+        font-size: 2rem;
+    }
+    
+    .person-silhouette,
+    .person-detailed-svg {
+        width: 150px;
+        height: 300px;
+    }
+    
+    .stage-info h2 {
+        font-size: 1.5rem;
+    }
+} 
