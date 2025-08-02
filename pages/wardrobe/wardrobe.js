@@ -9,10 +9,31 @@ class FloatingKeywords {
     }
     
     init() {
+        this.initCustomCursor();
         this.positionKeywords();
         this.addEventListeners();
         this.startFloating();
     }
+    
+    // Custom cursor functionality
+    initCustomCursor() {
+        const cursor = document.getElementById("custom-cursor");
+        
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+        
+        document.addEventListener('mouseleave', () => {
+            cursor.style.display = 'none';
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            cursor.style.display = 'block';
+        });
+    }
+    
+
     
     positionKeywords() {
         this.keywords.forEach((keyword, index) => {

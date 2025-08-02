@@ -7,16 +7,16 @@ let lastScrollTime = 0;
 
 // Background colors for each panel
 const bgColors = [
-    "linear-gradient(135deg, #fdf2ff 0%, #f8e6ff 50%, #f0d4ff 100%)", // Intro
-    "linear-gradient(135deg, #f8e6ff 0%, #f0d4ff 50%, #ebbcf7 100%)", // Route
-    "linear-gradient(135deg, #f0d4ff 0%, #ebbcf7 50%, #d4a5e8 100%)", // Wardrobe
-    "linear-gradient(135deg, #ebbcf7 0%, #d4a5e8 50%, #c896d9 100%)", // Door/Mirror
-    "linear-gradient(135deg, #d4a5e8 0%, #c896d9 50%, #b887ca 100%)", // Progress
-    "linear-gradient(135deg, #c896d9 0%, #b887ca 50%, #a778bb 100%)", // Gallery
-    "linear-gradient(135deg, #b887ca 0%, #a778bb 50%, #9669ac 100%)", // Technical
-    "linear-gradient(135deg, #a778bb 0%, #9669ac 50%, #855a9d 100%)", // Experimental
-    "linear-gradient(135deg, #9669ac 0%, #855a9d 50%, #744b8e 100%)", // Journey
-    "linear-gradient(135deg, #855a9d 0%, #744b8e 50%, #633c7f 100%)"  // Contact
+    "linear-gradient(135deg, #ffffff 0%, #fafafa 50%, #f5f5f5 100%)", // Intro
+    "linear-gradient(135deg, #fafafa 0%, #f5f5f5 50%, #f0f0f0 100%)", // Research
+    "linear-gradient(135deg, #f5f5f5 0%, #f0f0f0 50%, #ebebeb 100%)", // Wardrobe
+    "linear-gradient(135deg, #f0f0f0 0%, #ebebeb 50%, #e6e6e6 100%)", // Door/Mirror
+    "linear-gradient(135deg, #ebebeb 0%, #e6e6e6 50%, #e1e1e1 100%)", // Progress
+    "linear-gradient(135deg, #e6e6e6 0%, #e1e1e1 50%, #dcdcdc 100%)", // Gallery
+    "linear-gradient(135deg, #e1e1e1 0%, #dcdcdc 50%, #d7d7d7 100%)", // Technical
+    "linear-gradient(135deg, #dcdcdc 0%, #d7d7d7 50%, #d2d2d2 100%)", // Experimental
+    "linear-gradient(135deg, #d7d7d7 0%, #d2d2d2 50%, #cdcdcd 100%)", // Journey
+    "linear-gradient(135deg, #d2d2d2 0%, #cdcdcd 50%, #c8c8c8 100%)"  // Contact
 ];
 
 // Set initial background
@@ -77,23 +77,8 @@ window.addEventListener('wheel', (e) => {
     }
 });
 
-// === Custom Cursor Logic ===
-const cursor = document.getElementById("custom-cursor");
 
-document.addEventListener("mousemove", (e) => {
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.top = `${e.clientY}px`;
-});
 
-// Hide cursor when it leaves the window
-document.addEventListener('mouseleave', () => {
-    cursor.style.display = 'none';
-});
-
-// Show cursor when it enters the window
-document.addEventListener('mouseenter', () => {
-    cursor.style.display = 'block';
-});
 
 // === Interactive Functions ===
 function submitRoute() {

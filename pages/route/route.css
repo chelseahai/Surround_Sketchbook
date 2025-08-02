@@ -6,13 +6,28 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f8e6ff 0%, #f0d4ff 50%, #ebbcf7 100%);
-    color: #4a2c5a;
+    background: linear-gradient(135deg, #fefefe 0%, #fdfdfd 50%, #fcfcfc 100%);
+    color: #2c3e50;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: none;
+}
+
+
+/* Custom Cursor */
+#custom-cursor {
+    position: fixed;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #0f0e0f;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out;
+    z-index: 2147483647;
 }
 
 .route-container {
@@ -26,13 +41,13 @@ body {
     font-size: 2.5rem;
     font-weight: 400;
     margin-bottom: 1rem;
-    color: #6b3b7a;
+    color: #374151;
     letter-spacing: 0.5px;
 }
 
 .route-description {
     font-size: 1.2rem;
-    color: #8b5a9b;
+    color: #6b7280;
     margin-bottom: 3rem;
     font-weight: 300;
 }
@@ -48,10 +63,10 @@ body {
     width: 100%;
     max-width: 400px;
     padding: 1.2rem 1.5rem;
-    background: rgba(255, 255, 255, 0.8);
-    border: 2px solid rgba(235, 188, 247, 0.4);
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(156, 163, 175, 0.2);
     border-radius: 12px;
-    color: #4a2c5a;
+    color: #374151;
     font-size: 1rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
@@ -60,20 +75,21 @@ body {
 
 .route-input:focus {
     outline: none;
-    border-color: #ebbcf7;
+    border-color: rgba(107, 114, 128, 0.4);
     background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 0 0 3px rgba(235, 188, 247, 0.2);
+    box-shadow: 0 8px 25px rgba(107, 114, 128, 0.1);
 }
 
 .route-input::placeholder {
-    color: #b08bb8;
+    color: #9ca3af;
+    opacity: 0.7;
 }
 
 .route-button {
     padding: 1rem 2.5rem;
-    background: linear-gradient(135deg, #ebbcf7 0%, #d4a5e8 100%);
-    border: none;
-    color: #4a2c5a;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    border: 1px solid rgba(156, 163, 175, 0.2);
+    color: #374151;
     border-radius: 12px;
     cursor: none;
     font-size: 1rem;
@@ -81,13 +97,13 @@ body {
     font-weight: 500;
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
-    box-shadow: 0 4px 15px rgba(235, 188, 247, 0.3);
+    box-shadow: 0 4px 15px rgba(107, 114, 128, 0.1);
 }
 
 .route-button:hover {
-    background: linear-gradient(135deg, #d4a5e8 0%, #ebbcf7 100%);
+    background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(235, 188, 247, 0.4);
+    box-shadow: 0 6px 20px rgba(107, 114, 128, 0.15);
 }
 
 @media (max-width: 768px) {

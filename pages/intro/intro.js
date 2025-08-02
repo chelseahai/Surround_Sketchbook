@@ -10,9 +10,30 @@ class InteractiveNarrative {
         this.init();
     }
     
+
+    
     init() {
+        this.initCustomCursor();
         this.addEventListeners();
         this.setupScrollHandlers();
+    }
+    
+    // Custom cursor functionality
+    initCustomCursor() {
+        const cursor = document.getElementById("custom-cursor");
+        
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+        
+        document.addEventListener('mouseleave', () => {
+            cursor.style.display = 'none';
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            cursor.style.display = 'block';
+        });
     }
     
     addEventListeners() {
